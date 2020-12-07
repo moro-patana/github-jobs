@@ -4,19 +4,8 @@
   "description": "Here we are, the last graded project of this semester.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "scss": "node-sass scss -o webroot/css",
-    "scss:watch": "npm run scss && node-sass scss -w -o webroot/css",
- 
-    "build": "npm-run-all build:css build:html",
-    "build:css": "node-sass src/site/_includes/css/main.scss > src/site/css/main.css",
-    "build:html": "eleventy",
-    "watch": "npm-run-all --parallel watch:css watch:html",
-    "watch:css": "node-sass --watch src/site/_includes/css/main.scss > src/site/css/main.css",
-    "watch:html": "eleventy --serve --port=8181",
-    "start": "npm run watch"
-
-
+    "test": "echo \"Error: no test specified\" && exit 1"
+    
   },
   "repository": {
     "type": "git",
