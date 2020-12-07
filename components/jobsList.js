@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { Context } from "../pages/Context"
 
-export default function jobsList() {
+export default function JobsList() {
     const {jobs} = useContext(Context)
     return (
         <div>
