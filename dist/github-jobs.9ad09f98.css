@@ -27,6 +27,13 @@ img {
     grid-template-columns: repeat(3, 1fr);
     column-gap: 20px;
 }
+.company-logo {
+    grid-column: 1 / 2;
+    border-radius: 4px;
+}
+.about-job {
+    grid-column: 2 / 4;
+}
 
 
 /*# sourceMappingURL=/github-jobs.9ad09f98.css.map */
