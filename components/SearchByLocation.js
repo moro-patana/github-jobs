@@ -29,7 +29,7 @@ export default function SearchByLocation() {
             </form>
             <div>
                 {allLocation.map(job => (
-                    <fieldset>
+                    <fieldset key={job}>
                         <input type="checkbox"/>
                         <label>{job}</label>
                     </fieldset>

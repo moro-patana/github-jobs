@@ -34010,7 +34010,9 @@ function SearchByLocation() {
     placeholder: "City, state, zip code or country",
     value: location,
     onChange: e => setLocation(e.target.value)
-  })), /*#__PURE__*/_react.default.createElement("div", null, allLocation.map(job => /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("input", {
+  })), /*#__PURE__*/_react.default.createElement("div", null, allLocation.map(job => /*#__PURE__*/_react.default.createElement("fieldset", {
+    key: job
+  }, /*#__PURE__*/_react.default.createElement("input", {
     type: "checkbox"
   }), /*#__PURE__*/_react.default.createElement("label", null, job)))));
 }
