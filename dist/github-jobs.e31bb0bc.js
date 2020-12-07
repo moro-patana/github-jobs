@@ -33975,6 +33975,9 @@ function ContextProvider({
 }) {
   const [jobs, setJobs] = (0, _react.useState)([]);
   console.log(jobs);
+  const [fullTimeJobs, setFullTimeJobs] = (0, _react.useState)([]);
+  const filterFullTimeJobs = jobs.filter(job => job.type === "Full Time");
+  console.log(filterFullTimeJobs);
 
   async function fetchData() {
     const response = await fetch(JOBS_API);
@@ -33984,10 +33987,12 @@ function ContextProvider({
 
   (0, _react.useEffect)(() => {
     fetchData();
+    setFullTimeJobs(filterFullTimeJobs);
   }, []);
   return /*#__PURE__*/_react.default.createElement(Context.Provider, {
     value: {
-      jobs
+      jobs,
+      fullTimeJobs
     }
   }, children);
 }

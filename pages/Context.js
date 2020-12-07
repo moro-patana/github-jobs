@@ -4,6 +4,9 @@ const JOBS_API = " https://cors-anywhere.herokuapp.com/https://jobs.github.com/p
 function ContextProvider({children}) {
     const [jobs, setJobs] = useState([])
     console.log(jobs);
+    const [fullTimeJobs, setFullTimeJobs] = useState([])
+    const filterFullTimeJobs = jobs.filter(job => job.type === "Full Time")
+    console.log(filterFullTimeJobs)
 
     async function fetchData() {
         const response = await fetch(JOBS_API)
@@ -12,10 +15,11 @@ function ContextProvider({children}) {
     }
     useEffect(() => {
         fetchData()
+        setFullTimeJobs(filterFullTimeJobs)
     }, [])
     return (
         <Context.Provider
-        value={{jobs}}
+        value={{jobs, fullTimeJobs}}
         >
             {children}
         </Context.Provider>
