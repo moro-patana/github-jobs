@@ -23,7 +23,7 @@ function ContextProvider({children}) {
     }
     return (
         <Context.Provider
-        value={{jobs, fullTimeJobs, handleCheckbox,isChecked, setIsChecked}}
+        value={{jobs, setJobs, fullTimeJobs, handleCheckbox,isChecked, setIsChecked}}
         >
             {children}
         </Context.Provider>
