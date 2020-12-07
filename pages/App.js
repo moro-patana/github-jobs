@@ -3,6 +3,7 @@ import Header from "../components/Header"
 import SearchJobs from "../components/SearchJobs"
 import SearchByLocation from "../components/SearchByLocation"
 import FullTimeJobs from "../components/FullTimeJobs"
+import JobsList from "../components/JobsList"
 
 export default function App() {
     return (
@@ -11,6 +12,7 @@ export default function App() {
             <SearchJobs/>
             <FullTimeJobs/>
             <SearchByLocation/>
+            <JobsList/>
         </div>
     )
 }
