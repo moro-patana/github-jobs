@@ -34006,7 +34006,9 @@ function JobsList() {
   }, /*#__PURE__*/_react.default.createElement("img", {
     src: job.company_logo,
     alt: job.company
-  }), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, job.company), /*#__PURE__*/_react.default.createElement("p", null, job.title), /*#__PURE__*/_react.default.createElement("button", null, job.type)), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("span", null, job.location), /*#__PURE__*/_react.default.createElement("span", null, job.created_at)))));
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "about-job"
+  }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, job.company), /*#__PURE__*/_react.default.createElement("p", null, job.title), /*#__PURE__*/_react.default.createElement("button", null, job.type)), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("span", null, job.location), /*#__PURE__*/_react.default.createElement("span", null, job.created_at))))));
 }
 },{"react":"node_modules/react/index.js","../pages/Context":"pages/Context.js"}],"pages/App.js":[function(require,module,exports) {
 "use strict";
