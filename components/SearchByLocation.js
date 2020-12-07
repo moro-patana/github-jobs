@@ -1,10 +1,15 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Context } from "../pages/Context"
 
 export default function SearchByLocation() {
-    const {jobs, setJobs} = useContext(Context)
+    const {jobs, setJobs,cities} = useContext(Context)
     const [location, setLocation] = useState("")
-
+    const getLocation = jobs.map(job => job.location)
+    const allLocation = getLocation.filter((location, index) => {
+        return getLocation.indexOf(location) === index
+    })
+    console.log(allLocation);
+   
     function jobsLocation(e) {
         e.preventDefault()
         const locationCity = jobs.filter(job => job.location.toLowerCase().includes(location))
@@ -22,6 +27,14 @@ export default function SearchByLocation() {
                 onChange={(e) => setLocation(e.target.value)}
                 />
             </form>
+            <div>
+                {allLocation.map(job => (
+                    <fieldset>
+                        <input type="checkbox"/>
+                        <label>{job}</label>
+                    </fieldset>
+                ))}
+            </div>
         </div>
     )
 }
