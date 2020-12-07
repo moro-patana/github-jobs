@@ -33905,9 +33905,7 @@ var _react = _interopRequireDefault(require("react"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function SearchByLocation() {
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("input", {
-    type: "checkbox"
-  }), /*#__PURE__*/_react.default.createElement("label", null, "Full time")), /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("label", null, "Location"), /*#__PURE__*/_react.default.createElement("input", {
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("label", null, "Location"), /*#__PURE__*/_react.default.createElement("input", {
     type: "text",
     placeholder: "City, state, zip code or country"
   })));
