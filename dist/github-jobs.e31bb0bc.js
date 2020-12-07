@@ -33881,7 +33881,9 @@ var _react = _interopRequireDefault(require("react"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function SearchJobs() {
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("form", null, /*#__PURE__*/_react.default.createElement("input", {
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "form-input"
+  }, /*#__PURE__*/_react.default.createElement("form", null, /*#__PURE__*/_react.default.createElement("input", {
     type: "text",
     placeholder: "Title, companies, expertise or benefits"
   }), /*#__PURE__*/_react.default.createElement("button", {
@@ -33992,7 +33994,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53507" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53957" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

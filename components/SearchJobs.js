@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function SearchJobs() {
     return (
-        <div>
+        <div className="form-input">
             <form>
                 <input
                 type="text"
