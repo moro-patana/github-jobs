@@ -33934,8 +33934,8 @@ function ContextProvider({
   children
 }) {
   const [jobs, setJobs] = (0, _react.useState)([]);
-  console.log(jobs);
   const [fullTimeJobs, setFullTimeJobs] = (0, _react.useState)([]);
+  const [isChecked, setIsChecked] = (0, _react.useState)(false);
   const filterFullTimeJobs = jobs.filter(job => job.type === "Full Time");
   console.log(filterFullTimeJobs);
 
@@ -33949,10 +33949,19 @@ function ContextProvider({
     fetchData();
     setFullTimeJobs(filterFullTimeJobs);
   }, []);
+
+  function handleCheckbox() {
+    setJobs(filterFullTimeJobs);
+    setIsChecked(!isChecked);
+  }
+
   return /*#__PURE__*/_react.default.createElement(Context.Provider, {
     value: {
       jobs,
-      fullTimeJobs
+      fullTimeJobs,
+      handleCheckbox,
+      isChecked,
+      setIsChecked
     }
   }, children);
 }
@@ -33974,10 +33983,13 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function FullTimeJobs() {
   const {
-    fullTimeJobs
+    handleCheckbox,
+    isChecked
   } = (0, _react.useContext)(_Context.Context);
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("input", {
-    type: "checkbox"
+    type: "checkbox",
+    checked: isChecked,
+    onChange: handleCheckbox
   }), /*#__PURE__*/_react.default.createElement("label", null, "Full time")));
 }
 },{"react":"node_modules/react/index.js","../pages/Context":"pages/Context.js"}],"components/JobsList.js":[function(require,module,exports) {
@@ -34080,7 +34092,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53957" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59154" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
