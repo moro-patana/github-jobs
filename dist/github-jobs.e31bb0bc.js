@@ -33906,6 +33906,7 @@ function ContextProvider({
   (0, _react.useEffect)(() => {
     fetchData();
     setFullTimeJobs(filterFullTimeJobs);
+    setCities(getAllCities);
   }, []);
 
   function handleCheckbox() {
@@ -33987,9 +33988,15 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function SearchByLocation() {
   const {
     jobs,
-    setJobs
+    setJobs,
+    cities
   } = (0, _react.useContext)(_Context.Context);
   const [location, setLocation] = (0, _react.useState)("");
+  const getLocation = jobs.map(job => job.location);
+  const allLocation = getLocation.filter((location, index) => {
+    return getLocation.indexOf(location) === index;
+  });
+  console.log(allLocation);
 
   function jobsLocation(e) {
     e.preventDefault();
@@ -34004,7 +34011,9 @@ function SearchByLocation() {
     placeholder: "City, state, zip code or country",
     value: location,
     onChange: e => setLocation(e.target.value)
-  })));
+  })), /*#__PURE__*/_react.default.createElement("div", null, allLocation.map(job => /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("input", {
+    type: "checkbox"
+  }), /*#__PURE__*/_react.default.createElement("label", null, job)))));
 }
 },{"react":"node_modules/react/index.js","../pages/Context":"pages/Context.js"}],"components/FullTimeJobs.js":[function(require,module,exports) {
 "use strict";
