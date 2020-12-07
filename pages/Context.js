@@ -3,8 +3,8 @@ const Context = React.createContext()
 const JOBS_API = " https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?description"
 function ContextProvider({children}) {
     const [jobs, setJobs] = useState([])
-    console.log(jobs);
     const [fullTimeJobs, setFullTimeJobs] = useState([])
+    const [isChecked, setIsChecked] = useState(false)
     const filterFullTimeJobs = jobs.filter(job => job.type === "Full Time")
     console.log(filterFullTimeJobs)
 
@@ -17,9 +17,13 @@ function ContextProvider({children}) {
         fetchData()
         setFullTimeJobs(filterFullTimeJobs)
     }, [])
+    function handleCheckbox() {
+        setJobs(filterFullTimeJobs)
+        setIsChecked(!isChecked)
+    }
     return (
         <Context.Provider
-        value={{jobs, fullTimeJobs}}
+        value={{jobs, fullTimeJobs, handleCheckbox,isChecked, setIsChecked}}
         >
             {children}
         </Context.Provider>
