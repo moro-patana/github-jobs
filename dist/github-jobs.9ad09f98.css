@@ -1,8 +1,13 @@
-.form-input {
+.search-jobs {
     background-image: url("/backgroundImg.9f5bd77c.png");
     background-repeat: no-repeat;
     background-size: cover;
     padding: 1rem;
 }
+.form-input {
+    padding: 1rem;
+    text-align: center;
+}
+
 
 /*# sourceMappingURL=/github-jobs.9ad09f98.css.map */

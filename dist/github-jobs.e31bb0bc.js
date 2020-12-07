@@ -33882,8 +33882,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function SearchJobs() {
   return /*#__PURE__*/_react.default.createElement("div", {
+    className: "search-jobs"
+  }, /*#__PURE__*/_react.default.createElement("form", {
     className: "form-input"
-  }, /*#__PURE__*/_react.default.createElement("form", null, /*#__PURE__*/_react.default.createElement("input", {
+  }, /*#__PURE__*/_react.default.createElement("input", {
     type: "text",
     placeholder: "Title, companies, expertise or benefits"
   }), /*#__PURE__*/_react.default.createElement("button", {
