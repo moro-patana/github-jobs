@@ -6,7 +6,7 @@ export default function JobsList() {
     return (
         <div>
             {jobs.map(job => (
-                <article key={job.id}>
+                <article key={job.id} className="jobs-list">
                     <img src={job.company_logo} alt={job.company}/>
                     <div>
                         <h3>{job.company}</h3>

@@ -34001,7 +34001,8 @@ function JobsList() {
     jobs
   } = (0, _react.useContext)(_Context.Context);
   return /*#__PURE__*/_react.default.createElement("div", null, jobs.map(job => /*#__PURE__*/_react.default.createElement("article", {
-    key: job.id
+    key: job.id,
+    className: "jobs-list"
   }, /*#__PURE__*/_react.default.createElement("img", {
     src: job.company_logo,
     alt: job.company

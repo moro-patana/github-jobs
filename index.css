@@ -3,6 +3,9 @@ body {
     padding: 1rem;
     background-color: #F6F7FB;
 }
+img {
+    width: 100%;
+}
 .search-jobs {
     background-image: url("./img//backgroundImg.png");
     background-repeat: no-repeat;
