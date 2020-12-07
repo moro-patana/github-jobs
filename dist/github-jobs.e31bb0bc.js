@@ -33906,7 +33906,6 @@ function ContextProvider({
   (0, _react.useEffect)(() => {
     fetchData();
     setFullTimeJobs(filterFullTimeJobs);
-    setCities(getAllCities);
   }, []);
 
   function handleCheckbox() {

@@ -16,7 +16,6 @@ function ContextProvider({children}) {
     useEffect(() => {
         fetchData()
         setFullTimeJobs(filterFullTimeJobs)
-        setCities(getAllCities)
     }, [])
     function handleCheckbox() {
         setJobs(filterFullTimeJobs)
