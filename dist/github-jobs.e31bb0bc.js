@@ -33868,48 +33868,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function Header() {
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Github Jobs"));
 }
-},{"react":"node_modules/react/index.js"}],"components/SearchJobs.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = SearchJobs;
-
-var _react = _interopRequireDefault(require("react"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function SearchJobs() {
-  return /*#__PURE__*/_react.default.createElement("div", {
-    className: "search-jobs"
-  }, /*#__PURE__*/_react.default.createElement("form", {
-    className: "form-input"
-  }, /*#__PURE__*/_react.default.createElement("input", {
-    type: "text",
-    placeholder: "Title, companies, expertise or benefits"
-  }), /*#__PURE__*/_react.default.createElement("button", {
-    className: "search-button"
-  }, "Search")));
-}
-},{"react":"node_modules/react/index.js"}],"components/SearchByLocation.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = SearchByLocation;
-
-var _react = _interopRequireDefault(require("react"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function SearchByLocation() {
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("label", null, "Location"), /*#__PURE__*/_react.default.createElement("input", {
-    type: "text",
-    placeholder: "City, state, zip code or country"
-  })));
-}
 },{"react":"node_modules/react/index.js"}],"pages/Context.js":[function(require,module,exports) {
 "use strict";
 
@@ -33958,6 +33916,7 @@ function ContextProvider({
   return /*#__PURE__*/_react.default.createElement(Context.Provider, {
     value: {
       jobs,
+      setJobs,
       fullTimeJobs,
       handleCheckbox,
       isChecked,
@@ -33965,7 +33924,76 @@ function ContextProvider({
     }
   }, children);
 }
-},{"react":"node_modules/react/index.js"}],"components/FullTimeJobs.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js"}],"components/SearchJobs.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = SearchJobs;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _Context = require("../pages/Context");
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function SearchJobs() {
+  const {
+    jobs,
+    setJobs
+  } = (0, _react.useContext)(_Context.Context);
+  const [searchForJob, setSearchForJob] = (0, _react.useState)("");
+
+  function searchForJobInput(e) {
+    e.preventDefault();
+    const filteredJobByName = jobs.filter(job => job.title.toLowerCase().includes(searchForJob));
+    console.log(filteredJobByName);
+    setJobs(filteredJobByName);
+  }
+
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "search-jobs"
+  }, /*#__PURE__*/_react.default.createElement("form", {
+    className: "form-input",
+    onSubmit: searchForJobInput
+  }, /*#__PURE__*/_react.default.createElement("input", {
+    type: "text",
+    placeholder: "Title, companies, expertise or benefits",
+    value: searchForJob,
+    onChange: e => setSearchForJob(e.target.value)
+  }), /*#__PURE__*/_react.default.createElement("button", {
+    className: "search-button"
+  }, "Search")));
+}
+},{"react":"node_modules/react/index.js","../pages/Context":"pages/Context.js"}],"components/SearchByLocation.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = SearchByLocation;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _Context = require("../pages/Context");
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function SearchByLocation() {
+  const {
+    jobs
+  } = (0, _react.useContext)(_Context.Context);
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("label", null, "Location"), /*#__PURE__*/_react.default.createElement("input", {
+    type: "text",
+    placeholder: "City, state, zip code or country"
+  })));
+}
+},{"react":"node_modules/react/index.js","../pages/Context":"pages/Context.js"}],"components/FullTimeJobs.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

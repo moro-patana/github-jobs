@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
+import { Context } from "../pages/Context"
 
 export default function SearchByLocation() {
+    const {jobs} = useContext(Context)
+   
     return (
         <div>
             <fieldset>
