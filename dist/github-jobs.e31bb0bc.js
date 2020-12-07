@@ -33892,6 +33892,26 @@ function SearchJobs() {
     className: "search-button"
   }, "Search")));
 }
+},{"react":"node_modules/react/index.js"}],"components/SearchByLocation.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = SearchByLocation;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function SearchByLocation() {
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("input", {
+    type: "checkbox"
+  }), /*#__PURE__*/_react.default.createElement("label", null, "Full time")), /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("label", null, "Location"), /*#__PURE__*/_react.default.createElement("input", {
+    type: "text",
+    placeholder: "City, state, zip code or country"
+  })));
+}
 },{"react":"node_modules/react/index.js"}],"pages/App.js":[function(require,module,exports) {
 "use strict";
 
@@ -33906,12 +33926,14 @@ var _Header = _interopRequireDefault(require("../components/Header"));
 
 var _SearchJobs = _interopRequireDefault(require("../components/SearchJobs"));
 
+var _SearchByLocation = _interopRequireDefault(require("../components/SearchByLocation"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function App() {
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Header.default, null), /*#__PURE__*/_react.default.createElement(_SearchJobs.default, null));
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Header.default, null), /*#__PURE__*/_react.default.createElement(_SearchJobs.default, null), /*#__PURE__*/_react.default.createElement(_SearchByLocation.default, null));
 }
-},{"react":"node_modules/react/index.js","../components/Header":"components/Header.js","../components/SearchJobs":"components/SearchJobs.js"}],"pages/Context.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../components/Header":"components/Header.js","../components/SearchJobs":"components/SearchJobs.js","../components/SearchByLocation":"components/SearchByLocation.js"}],"pages/Context.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
