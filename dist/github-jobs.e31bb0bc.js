@@ -34004,6 +34004,7 @@ function JobsList() {
     key: job.id,
     className: "jobs-list"
   }, /*#__PURE__*/_react.default.createElement("img", {
+    className: "company-logo",
     src: job.company_logo,
     alt: job.company
   }), /*#__PURE__*/_react.default.createElement("div", {
