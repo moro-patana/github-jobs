@@ -33986,11 +33986,24 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function SearchByLocation() {
   const {
-    jobs
+    jobs,
+    setJobs
   } = (0, _react.useContext)(_Context.Context);
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("label", null, "Location"), /*#__PURE__*/_react.default.createElement("input", {
+  const [location, setLocation] = (0, _react.useState)("");
+
+  function jobsLocation(e) {
+    e.preventDefault();
+    const locationCity = jobs.filter(job => job.location.toLowerCase().includes(location));
+    setJobs(locationCity);
+  }
+
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("form", {
+    onSubmit: jobsLocation
+  }, /*#__PURE__*/_react.default.createElement("label", null, "Location"), /*#__PURE__*/_react.default.createElement("input", {
     type: "text",
-    placeholder: "City, state, zip code or country"
+    placeholder: "City, state, zip code or country",
+    value: location,
+    onChange: e => setLocation(e.target.value)
   })));
 }
 },{"react":"node_modules/react/index.js","../pages/Context":"pages/Context.js"}],"components/FullTimeJobs.js":[function(require,module,exports) {
