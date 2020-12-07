@@ -33991,11 +33991,7 @@ function SearchByLocation() {
     cities
   } = (0, _react.useContext)(_Context.Context);
   const [location, setLocation] = (0, _react.useState)("");
-  const getLocation = jobs.map(job => job.location);
-  const allLocation = getLocation.filter((location, index) => {
-    return getLocation.indexOf(location) === index;
-  });
-  console.log(allLocation);
+  const locationList = ["London", "Berlin", "New York", "Amsterdam"];
 
   function jobsLocation(e) {
     e.preventDefault();
@@ -34010,11 +34006,11 @@ function SearchByLocation() {
     placeholder: "City, state, zip code or country",
     value: location,
     onChange: e => setLocation(e.target.value)
-  })), /*#__PURE__*/_react.default.createElement("div", null, allLocation.map(job => /*#__PURE__*/_react.default.createElement("fieldset", {
-    key: job
+  })), /*#__PURE__*/_react.default.createElement("div", null, locationList.map(location => /*#__PURE__*/_react.default.createElement("fieldset", {
+    key: location
   }, /*#__PURE__*/_react.default.createElement("input", {
     type: "checkbox"
-  }), /*#__PURE__*/_react.default.createElement("label", null, job)))));
+  }), /*#__PURE__*/_react.default.createElement("label", null, location)))));
 }
 },{"react":"node_modules/react/index.js","../pages/Context":"pages/Context.js"}],"components/FullTimeJobs.js":[function(require,module,exports) {
 "use strict";
