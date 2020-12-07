@@ -1,6 +1,10 @@
-.form-input {
+.search-jobs {
     background-image: url("./img//backgroundImg.png");
     background-repeat: no-repeat;
     background-size: cover;
     padding: 1rem;
+}
+.form-input {
+    padding: 1rem;
+    text-align: center;
 }
