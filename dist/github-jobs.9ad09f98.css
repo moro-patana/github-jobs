@@ -1,3 +1,8 @@
+body {
+    margin-top: 0;
+    padding: 1rem;
+    background-color: #F6F7FB;
+}
 .search-jobs {
     background-image: url("/backgroundImg.9f5bd77c.png");
     background-repeat: no-repeat;
