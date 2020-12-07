@@ -1,0 +1,6 @@
+.form-input {
+    background-image: url("./img//backgroundImg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 1rem;
+}
