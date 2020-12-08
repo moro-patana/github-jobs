@@ -1,14 +1,18 @@
 import React, { useContext, useState } from 'react'
 import { Context } from "../pages/Context"
 export default function SearchJobs() {
-    const {jobs, setJobs} = useContext(Context)
+    const {state, dispatch} = useContext(Context)
+    const {jobs} = state
+    console.log(jobs);
     const [searchForJob, setSearchForJob] = useState("")
 
     function searchForJobInput(e) {
         e.preventDefault()
         const filteredJobByName = jobs.filter(job => job.title.toLowerCase().includes(searchForJob))
         console.log(filteredJobByName)
-        setJobs(filteredJobByName)
+        dispatch({type: "SEARCH_JOB_BY_NAME", value: filteredJobByName})
+        // setJobs(filteredJobByName)
+        setSearchForJob("")
     }
     return (
         <div className="search-jobs">

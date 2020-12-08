@@ -33891,36 +33891,38 @@ const JOBS_API = " https://cors-anywhere.herokuapp.com/https://jobs.github.com/p
 function ContextProvider({
   children
 }) {
-  const [jobs, setJobs] = (0, _react.useState)([]);
-  const [fullTimeJobs, setFullTimeJobs] = (0, _react.useState)([]);
-  const [isChecked, setIsChecked] = (0, _react.useState)(false);
-  const filterFullTimeJobs = jobs.filter(job => job.type === "Full Time");
-  console.log(filterFullTimeJobs);
+  const [state, dispatch] = (0, _react.useReducer)((state, action) => {
+    switch (action.type) {
+      case "FETCH_DATA":
+        {
+          return { ...state,
+            loading: false,
+            jobs: action.jobs
+          };
+        }
 
-  async function fetchData() {
-    const response = await fetch(JOBS_API);
-    const data = await response.json();
-    setJobs(data);
-  }
-
+      case "SEARCH_JOB_BY_NAME":
+        {
+          return { ...state,
+            loading: false,
+            jobs: action.value
+          };
+        }
+    }
+  }, {
+    jobs: [],
+    loading: true
+  });
   (0, _react.useEffect)(() => {
-    fetchData();
-    setFullTimeJobs(filterFullTimeJobs);
+    fetch(JOBS_API).then(response => response.json()).then(data => dispatch({
+      type: "FETCH_DATA",
+      jobs: data
+    }));
   }, []);
-
-  function handleCheckbox() {
-    setJobs(filterFullTimeJobs);
-    setIsChecked(!isChecked);
-  }
-
   return /*#__PURE__*/_react.default.createElement(Context.Provider, {
     value: {
-      jobs,
-      setJobs,
-      fullTimeJobs,
-      handleCheckbox,
-      isChecked,
-      setIsChecked
+      state,
+      dispatch
     }
   }, children);
 }
@@ -33942,16 +33944,25 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function SearchJobs() {
   const {
-    jobs,
-    setJobs
+    state,
+    dispatch
   } = (0, _react.useContext)(_Context.Context);
+  const {
+    jobs
+  } = state;
+  console.log(jobs);
   const [searchForJob, setSearchForJob] = (0, _react.useState)("");
 
   function searchForJobInput(e) {
     e.preventDefault();
     const filteredJobByName = jobs.filter(job => job.title.toLowerCase().includes(searchForJob));
     console.log(filteredJobByName);
-    setJobs(filteredJobByName);
+    dispatch({
+      type: "SEARCH_JOB_BY_NAME",
+      value: filteredJobByName
+    }); // setJobs(filteredJobByName)
+
+    setSearchForJob("");
   }
 
   return /*#__PURE__*/_react.default.createElement("div", {
@@ -33967,77 +33978,6 @@ function SearchJobs() {
   }), /*#__PURE__*/_react.default.createElement("button", {
     className: "search-button"
   }, "Search")));
-}
-},{"react":"node_modules/react/index.js","../pages/Context":"pages/Context.js"}],"components/SearchByLocation.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = SearchByLocation;
-
-var _react = _interopRequireWildcard(require("react"));
-
-var _Context = require("../pages/Context");
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function SearchByLocation() {
-  const {
-    jobs,
-    setJobs,
-    cities
-  } = (0, _react.useContext)(_Context.Context);
-  const [location, setLocation] = (0, _react.useState)("");
-  const locationList = ["London", "Berlin", "New York", "Amsterdam"];
-
-  function jobsLocation(e) {
-    e.preventDefault();
-    const locationCity = jobs.filter(job => job.location.toLowerCase().includes(location));
-    setJobs(locationCity);
-  }
-
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("form", {
-    onSubmit: jobsLocation
-  }, /*#__PURE__*/_react.default.createElement("label", null, "Location"), /*#__PURE__*/_react.default.createElement("input", {
-    type: "text",
-    placeholder: "City, state, zip code or country",
-    value: location,
-    onChange: e => setLocation(e.target.value)
-  })), /*#__PURE__*/_react.default.createElement("div", null, locationList.map(location => /*#__PURE__*/_react.default.createElement("fieldset", {
-    key: location
-  }, /*#__PURE__*/_react.default.createElement("input", {
-    type: "checkbox"
-  }), /*#__PURE__*/_react.default.createElement("label", null, location)))));
-}
-},{"react":"node_modules/react/index.js","../pages/Context":"pages/Context.js"}],"components/FullTimeJobs.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = FullTimeJobs;
-
-var _react = _interopRequireWildcard(require("react"));
-
-var _Context = require("../pages/Context");
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function FullTimeJobs() {
-  const {
-    handleCheckbox,
-    isChecked
-  } = (0, _react.useContext)(_Context.Context);
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("input", {
-    type: "checkbox",
-    checked: isChecked,
-    onChange: handleCheckbox
-  }), /*#__PURE__*/_react.default.createElement("label", null, "Full time")));
 }
 },{"react":"node_modules/react/index.js","../pages/Context":"pages/Context.js"}],"components/JobsList.js":[function(require,module,exports) {
 "use strict";
@@ -34057,9 +33997,14 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function JobsList() {
   const {
-    jobs
+    state
   } = (0, _react.useContext)(_Context.Context);
-  return /*#__PURE__*/_react.default.createElement("div", null, jobs.map(job => /*#__PURE__*/_react.default.createElement("article", {
+  const {
+    jobs,
+    loading
+  } = state;
+  console.log(jobs);
+  return /*#__PURE__*/_react.default.createElement("div", null, loading && /*#__PURE__*/_react.default.createElement("p", null, "Loading..."), !loading && jobs && /*#__PURE__*/_react.default.createElement("div", null, jobs.map(job => /*#__PURE__*/_react.default.createElement("article", {
     key: job.id,
     className: "jobs-list"
   }, /*#__PURE__*/_react.default.createElement("img", {
@@ -34068,7 +34013,7 @@ function JobsList() {
     alt: job.company
   }), /*#__PURE__*/_react.default.createElement("div", {
     className: "about-job"
-  }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, job.company), /*#__PURE__*/_react.default.createElement("p", null, job.title), /*#__PURE__*/_react.default.createElement("button", null, job.type)), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("span", null, job.location), /*#__PURE__*/_react.default.createElement("span", null, job.created_at))))));
+  }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, job.company), /*#__PURE__*/_react.default.createElement("p", null, job.title), /*#__PURE__*/_react.default.createElement("button", null, job.type)), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("span", null, job.location), /*#__PURE__*/_react.default.createElement("span", null, job.created_at)))))));
 }
 },{"react":"node_modules/react/index.js","../pages/Context":"pages/Context.js"}],"pages/App.js":[function(require,module,exports) {
 "use strict";
@@ -34084,18 +34029,16 @@ var _Header = _interopRequireDefault(require("../components/Header"));
 
 var _SearchJobs = _interopRequireDefault(require("../components/SearchJobs"));
 
-var _SearchByLocation = _interopRequireDefault(require("../components/SearchByLocation"));
-
-var _FullTimeJobs = _interopRequireDefault(require("../components/FullTimeJobs"));
-
 var _JobsList = _interopRequireDefault(require("../components/JobsList"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// import SearchByLocation from "../components/SearchByLocation"
+// import FullTimeJobs from "../components/FullTimeJobs"
 function App() {
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Header.default, null), /*#__PURE__*/_react.default.createElement(_SearchJobs.default, null), /*#__PURE__*/_react.default.createElement(_FullTimeJobs.default, null), /*#__PURE__*/_react.default.createElement(_SearchByLocation.default, null), /*#__PURE__*/_react.default.createElement(_JobsList.default, null));
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Header.default, null), /*#__PURE__*/_react.default.createElement(_SearchJobs.default, null), /*#__PURE__*/_react.default.createElement(_JobsList.default, null));
 }
-},{"react":"node_modules/react/index.js","../components/Header":"components/Header.js","../components/SearchJobs":"components/SearchJobs.js","../components/SearchByLocation":"components/SearchByLocation.js","../components/FullTimeJobs":"components/FullTimeJobs.js","../components/JobsList":"components/JobsList.js"}],"index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../components/Header":"components/Header.js","../components/SearchJobs":"components/SearchJobs.js","../components/JobsList":"components/JobsList.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -34139,7 +34082,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59487" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64139" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
