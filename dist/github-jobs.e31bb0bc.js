@@ -33866,7 +33866,7 @@ var _react = _interopRequireDefault(require("react"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function Header() {
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Github Jobs"));
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, /*#__PURE__*/_react.default.createElement("b", null, "Github"), " Jobs"));
 }
 },{"react":"node_modules/react/index.js"}],"pages/Context.js":[function(require,module,exports) {
 "use strict";

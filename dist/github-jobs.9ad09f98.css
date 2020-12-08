@@ -3,6 +3,19 @@ body {
     padding: 1rem;
     background-color: #F6F7FB;
 }
+h1 {
+    font-family:"Poppins";
+    font-size: 24px;
+    line-height: 36px;
+}
+h1 > b {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 36px;
+    color: #282538;
+}
 img {
     width: 100%;
 }
