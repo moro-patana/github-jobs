@@ -34117,7 +34117,7 @@ function JobDetails() {
     href: "/eric"
   }, "eric@kasisto.com"))), /*#__PURE__*/_react.default.createElement("article", {
     key: job?.id,
-    className: "jobs-list"
+    className: "jobs-details"
   }, /*#__PURE__*/_react.default.createElement("img", {
     className: "company-logo",
     src: job?.company_logo,

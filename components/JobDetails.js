@@ -14,7 +14,7 @@ function JobDetails() {
             <div>
                 <p>Please email a copy of your resume and online portfolio to <a href="/wes">wes@kasisto.com</a> & CC <a href="/eric">eric@kasisto.com</a></p>
             </div>
-            <article key={job?.id} className="jobs-list">
+            <article key={job?.id} className="jobs-details">
                 <img className="company-logo" src={job?.company_logo} alt={job?.company} />
                 <div className="about-job">
                     <div>
