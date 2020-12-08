@@ -3,6 +3,7 @@ import { Context } from "../pages/Context"
 import { Link } from "react-router-dom"
 import SearchJobs from "../components/SearchJobs"
 import FullTimeJobs from "../components/FullTimeJobs"
+import SearchByLocation from "../components/SearchByLocation"
 
 
 export default function JobsList() {
@@ -13,6 +14,7 @@ export default function JobsList() {
         <div>
             <SearchJobs/>
             <FullTimeJobs/>
+            <SearchByLocation/>
             {loading && <p>Loading...</p>}
             {!loading && jobs && (
                 <div>
