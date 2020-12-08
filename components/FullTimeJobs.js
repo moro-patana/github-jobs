@@ -8,7 +8,7 @@ export default function FullTimeJobs() {
     console.log(jobs);
 
     function handleCheckboxLocation() {
-        const fullTimeJobs = jobs.filter(job => job.type === "Full Time")
+        const fullTimeJobs = jobs.filter(job => job.type === "Contract")
         setIsChecked(!isChecked)
         dispatch({type:"SEARCH_FULL_TIME_JOB", value: fullTimeJobs})
     }

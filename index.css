@@ -6,12 +6,43 @@ body {
 img {
     width: 100%;
 }
+fieldset {
+    border: none;
+    padding-left: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+}
+[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    left: 12px;
+    top: 247px;
+    border: 1px solid #B9BDCF;
+    box-sizing: border-box;
+    border-radius: 2px
+}
+label {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    color: #334680;
+    padding-top: 2px;
+    padding-left: 10px;
+
+}
 .search-jobs {
     background-image: url("./img//backgroundImg.png");
     background-repeat: no-repeat;
     background-size: cover;
     padding: 1rem;
     border-radius: 8px;
+    padding-top: 45px;
+    padding-bottom: 45px;
+    padding-left: 18px;
+    padding-right: 18px;
 }
 .form-input {
     padding: 2px;
