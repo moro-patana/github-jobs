@@ -14,8 +14,31 @@ img {
     border-radius: 8px;
 }
 .form-input {
-    padding: 1rem;
+    padding: 2px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     text-align: center;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+.search-button {
+    padding-left: 27px;
+    padding-right: 27px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    border: none;
+    border-radius: 4px;
+    background: #1E86FF;
+    color: white;
+}
+.form-input input {
+    border: none;
+}
+.ri-earth-line {
+    margin-top: 13px;
+    width: 30px;
 }
 .jobs-list {
     background: #FFFFFF;

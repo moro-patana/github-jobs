@@ -17,6 +17,7 @@ export default function SearchJobs() {
     return (
         <div className="search-jobs">
             <form className="form-input" onSubmit={searchForJobInput}>
+                <i className="ri-earth-line"></i>
                 <input
                 type="text"
                 placeholder="Title, companies, expertise or benefits"

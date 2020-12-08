@@ -33978,7 +33978,9 @@ function SearchJobs() {
   }, /*#__PURE__*/_react.default.createElement("form", {
     className: "form-input",
     onSubmit: searchForJobInput
-  }, /*#__PURE__*/_react.default.createElement("input", {
+  }, /*#__PURE__*/_react.default.createElement("i", {
+    className: "ri-earth-line"
+  }), /*#__PURE__*/_react.default.createElement("input", {
     type: "text",
     placeholder: "Title, companies, expertise or benefits",
     value: searchForJob,
