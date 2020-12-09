@@ -33917,6 +33917,13 @@ function ContextProvider({
           };
         }
 
+      case "SEARCH_BY_CITYNAME":
+        {
+          return { ...state,
+            jobs: action.value
+          };
+        }
+
       case "SEARCH_JOB_IN_UNITED_STATES":
         {
           return { ...state,
@@ -34180,12 +34187,16 @@ function SearchByLocation() {
     jobs
   } = state;
   const [location, setLocation] = (0, _react.useState)("");
-  const mapLocation = jobs.map(job => job.location); // console.log(mapLocation);
+  const searchByCityName = jobs.filter(job => job.location.toLowerCase().includes(location));
 
-  const filterLocation = mapLocation.filter((location, index) => {
-    return mapLocation.indexOf(location) === index;
-  });
-  console.log(filterLocation);
+  function handleSearchCityName(e) {
+    setLocation(e.target.value);
+    dispatch({
+      type: "SEARCH_BY_CITYNAME",
+      value: searchByCityName
+    });
+  }
+
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_FullTimeJobs.default, null), /*#__PURE__*/_react.default.createElement("form", {
     className: "search-city"
   }, /*#__PURE__*/_react.default.createElement("label", null, "Location"), /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("i", {
@@ -34194,7 +34205,7 @@ function SearchByLocation() {
     type: "text",
     placeholder: "City, state, zip code or country",
     value: location,
-    onChange: e => setLocation(e.target.value)
+    onChange: handleSearchCityName
   }))), /*#__PURE__*/_react.default.createElement(_CheckboxCity.default, null));
 }
 },{"react":"node_modules/react/index.js","../pages/Context":"pages/Context.js","../components/CheckboxCity":"components/CheckboxCity.js","../components/FullTimeJobs":"components/FullTimeJobs.js"}],"components/JobsList.js":[function(require,module,exports) {
@@ -34229,11 +34240,10 @@ function JobsList() {
   const {
     jobs,
     loading
-  } = state; // console.log(jobs);
-
+  } = state;
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_SearchJobs.default, null), /*#__PURE__*/_react.default.createElement("div", {
     className: "jobs"
-  }, /*#__PURE__*/_react.default.createElement(_SearchByLocation.default, null), loading && /*#__PURE__*/_react.default.createElement("p", null, "Loading..."), !loading && jobs && /*#__PURE__*/_react.default.createElement("div", null, jobs.map(job => /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+  }, /*#__PURE__*/_react.default.createElement(_SearchByLocation.default, null), loading && /*#__PURE__*/_react.default.createElement("p", null, "Loading..."), !loading && /*#__PURE__*/_react.default.createElement("div", null, jobs.map(job => /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: `/job/${job.id}`,
     key: job.id
   }, /*#__PURE__*/_react.default.createElement("article", {

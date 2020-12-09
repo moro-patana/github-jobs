@@ -7,13 +7,12 @@ export default function SearchByLocation() {
     const {state, dispatch} = useContext(Context)
     const {jobs} = state
     const [location, setLocation] = useState("")
-    const mapLocation = jobs.map(job => job.location)
-    // console.log(mapLocation);
-    const filterLocation = mapLocation.filter((location, index) => {
-            return mapLocation.indexOf(location) === index;
-        })
-        console.log(filterLocation);
-    return (
+    const searchByCityName = jobs.filter(job => job.location.toLowerCase().includes(location))
+    function handleSearchCityName(e) {
+        setLocation(e.target.value)
+        dispatch({type: "SEARCH_BY_CITYNAME", value: searchByCityName})
+    }
+     return (
         <div>
             <FullTimeJobs/>
             <form className="search-city">
@@ -24,7 +23,7 @@ export default function SearchByLocation() {
                     type="text" 
                     placeholder="City, state, zip code or country"
                     value={location}
-                    onChange={(e) => setLocation(e.target.value)}
+                    onChange={handleSearchCityName}
                     />
                 </fieldset>
             </form>

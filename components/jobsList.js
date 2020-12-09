@@ -8,14 +8,13 @@ import SearchByLocation from "../components/SearchByLocation"
 export default function JobsList() {
     const { state, dispatch } = useContext(Context)
     const { jobs, loading } = state
-    // console.log(jobs);
     return (
         <div>
             <SearchJobs/>
             <div className="jobs">
                 <SearchByLocation/>
                 {loading && <p>Loading...</p>}
-                {!loading && jobs && (
+                {!loading && (
                     <div>
                         {jobs.map(job => (
                             <Link to={`/job/${job.id}`} key={job.id}>
