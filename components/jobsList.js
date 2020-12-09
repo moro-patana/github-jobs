@@ -25,10 +25,11 @@ export default function JobsList() {
                                 <div className="about-job">
                                     <div>
                                         <h3>{job.company}</h3>
-                                        <p>{job.title}</p>
-                                        <button>{job.type}</button>
+                                        <p className="title">{job.title}</p>
+                                        <button className="type">{job.type}</button>
                                     </div>
-                                    <div>
+                                    <div className="more">
+                                        <i className="ri-earth-line"></i>
                                         <span>{job.location}</span>
                                         <span>{new Date(job?.created_at).toLocaleDateString()}</span>
                                     </div>

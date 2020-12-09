@@ -34243,7 +34243,15 @@ function JobsList() {
     alt: job.company
   }), /*#__PURE__*/_react.default.createElement("div", {
     className: "about-job"
-  }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, job.company), /*#__PURE__*/_react.default.createElement("p", null, job.title), /*#__PURE__*/_react.default.createElement("button", null, job.type)), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("span", null, job.location), /*#__PURE__*/_react.default.createElement("span", null, new Date(job?.created_at).toLocaleDateString()))))))));
+  }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, job.company), /*#__PURE__*/_react.default.createElement("p", {
+    className: "title"
+  }, job.title), /*#__PURE__*/_react.default.createElement("button", {
+    className: "type"
+  }, job.type)), /*#__PURE__*/_react.default.createElement("div", {
+    className: "more"
+  }, /*#__PURE__*/_react.default.createElement("i", {
+    className: "ri-earth-line"
+  }), /*#__PURE__*/_react.default.createElement("span", null, job.location), /*#__PURE__*/_react.default.createElement("span", null, new Date(job?.created_at).toLocaleDateString()))))))));
 }
 },{"react":"node_modules/react/index.js","../pages/Context":"pages/Context.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","../components/SearchJobs":"components/SearchJobs.js","../components/FullTimeJobs":"components/FullTimeJobs.js","../components/SearchByLocation":"components/SearchByLocation.js"}],"components/JobDetails.js":[function(require,module,exports) {
 "use strict";

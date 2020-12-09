@@ -10,6 +10,14 @@ h1 {
     font-size: 24px;
     line-height: 36px;
 }
+h3 {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+    color: #334680;
+}
 h1 > b {
     font-style: normal;
     font-weight: bold;
@@ -19,6 +27,9 @@ h1 > b {
 }
 img {
     width: 100%;
+}
+i {
+    margin: 0;
 }
 fieldset {
     border: none;
@@ -104,9 +115,28 @@ label {
 .company-logo {
     grid-column: 1 / 2;
     border-radius: 4px;
+    padding-top: 30px;
 }
 .about-job {
     grid-column: 2 / 4;
+}
+
+/* JobList styles */
+.jobs-list .title {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: #334680;
+    padding-top: 8px;
+    padding-bottom: 14px;
+}
+.more {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
 }
 
 /* Search city form styles */
@@ -225,7 +255,7 @@ h2 {
     line-height: 150%;
     color: #334680;
 }
-ul {
+ul, ol {
     padding: 0;
 }
 
