@@ -9,7 +9,7 @@ import SearchByLocation from "../components/SearchByLocation"
 export default function JobsList() {
     const { state, dispatch } = useContext(Context)
     const { jobs, loading } = state
-    console.log(jobs);
+    // console.log(jobs);
     return (
         <div>
             <SearchJobs/>

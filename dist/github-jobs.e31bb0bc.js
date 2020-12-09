@@ -33916,6 +33916,38 @@ function ContextProvider({
             jobs: action.value
           };
         }
+
+      case "SEARCH_JOB_IN_UNITED_STATES":
+        {
+          return { ...state,
+            loading: false,
+            jobs: action.value
+          };
+        }
+
+      case "SEARCH_JOB_IN_NEW_YORK":
+        {
+          return { ...state,
+            loading: false,
+            jobs: action.value
+          };
+        }
+
+      case "SEARCH_JOB_IN_BARCELONA":
+        {
+          return { ...state,
+            loading: false,
+            jobs: action.value
+          };
+        }
+
+      case "SEARCH_JOB_IN_BERLIN":
+        {
+          return { ...state,
+            loading: false,
+            jobs: action.value
+          };
+        }
     }
   }, {
     jobs: [],
@@ -34013,8 +34045,7 @@ function FullTimeJobs() {
   const {
     jobs
   } = state;
-  const [isChecked, setIsChecked] = (0, _react.useState)(false);
-  console.log(jobs);
+  const [isChecked, setIsChecked] = (0, _react.useState)(false); // console.log(jobs);
 
   function handleCheckboxLocation() {
     const fullTimeJobs = jobs.filter(job => job.type === "Contract");
@@ -34031,6 +34062,93 @@ function FullTimeJobs() {
     onChange: handleCheckboxLocation
   }), /*#__PURE__*/_react.default.createElement("label", null, "Full time")));
 }
+},{"react":"node_modules/react/index.js","../pages/Context":"pages/Context.js"}],"components/CheckboxCity.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = CheckboxCity;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _Context = require("../pages/Context");
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function CheckboxCity() {
+  const {
+    state,
+    dispatch
+  } = (0, _react.useContext)(_Context.Context);
+  const {
+    jobs
+  } = state;
+  const [unitedStates, setUnitedStates] = (0, _react.useState)(false);
+  const [newYork, setNewYork] = (0, _react.useState)(false);
+  const [barcelona, setBarcelona] = (0, _react.useState)(false);
+  const [berlin, setBerlin] = (0, _react.useState)(false);
+
+  function unitedStatesCity() {
+    const unitedStatesJobs = jobs.filter(job => job.location === "United States");
+    console.log(unitedStatesJobs);
+    setUnitedStates(!unitedStates);
+    dispatch({
+      type: "SEARCH_JOB_IN_UNITED_STATES",
+      value: unitedStatesJobs
+    });
+  }
+
+  function newYorkCity() {
+    const newYorkCityJobs = jobs.filter(job => job.location === "New York City");
+    console.log(newYorkCityJobs);
+    setNewYork(!newYork);
+    dispatch({
+      type: "SEARCH_JOB_IN_NEW_YORK",
+      value: newYorkCityJobs
+    });
+  }
+
+  function barcelonaCity() {
+    const barcelonaCityJobs = jobs.filter(job => job.location === "Barcelona");
+    console.log(barcelonaCityJobs);
+    setBarcelona(!barcelona);
+    dispatch({
+      type: "SEARCH_JOB_IN_BARCELONA",
+      value: barcelonaCityJobs
+    });
+  }
+
+  function berlinCity() {
+    const berlinCityJobs = jobs.filter(job => job.location === "Berlin");
+    console.log(berlinCityJobs);
+    setBerlin(!berlin);
+    dispatch({
+      type: "SEARCH_JOB_IN_BERLIN",
+      value: berlinCityJobs
+    });
+  }
+
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("input", {
+    type: "checkbox",
+    checked: unitedStates,
+    onChange: unitedStatesCity
+  }), /*#__PURE__*/_react.default.createElement("label", null, "United States")), /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("input", {
+    type: "checkbox",
+    checked: newYork,
+    onChange: newYorkCity
+  }), /*#__PURE__*/_react.default.createElement("label", null, "New York")), /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("input", {
+    type: "checkbox",
+    checked: barcelona,
+    onChange: barcelonaCity
+  }), /*#__PURE__*/_react.default.createElement("label", null, "Barcelona")), /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("input", {
+    type: "checkbox",
+    checked: berlin,
+    onChange: berlinCity
+  }), /*#__PURE__*/_react.default.createElement("label", null, "Berlin")));
+}
 },{"react":"node_modules/react/index.js","../pages/Context":"pages/Context.js"}],"components/SearchByLocation.js":[function(require,module,exports) {
 "use strict";
 
@@ -34042,6 +34160,10 @@ exports.default = SearchByLocation;
 var _react = _interopRequireWildcard(require("react"));
 
 var _Context = require("../pages/Context");
+
+var _CheckboxCity = _interopRequireDefault(require("../components/CheckboxCity"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
@@ -34056,8 +34178,8 @@ function SearchByLocation() {
     jobs
   } = state;
   const [location, setLocation] = (0, _react.useState)("");
-  const mapLocation = jobs.map(job => job.location);
-  console.log(mapLocation);
+  const mapLocation = jobs.map(job => job.location); // console.log(mapLocation);
+
   const filterLocation = mapLocation.filter((location, index) => {
     return mapLocation.indexOf(location) === index;
   });
@@ -34067,17 +34189,9 @@ function SearchByLocation() {
     placeholder: "City, state, zip code or country",
     value: location,
     onChange: e => setLocation(e.target.value)
-  })), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("input", {
-    type: "checkbox"
-  }), /*#__PURE__*/_react.default.createElement("label", null, "London")), /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("input", {
-    type: "checkbox"
-  }), /*#__PURE__*/_react.default.createElement("label", null, "New York")), /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("input", {
-    type: "checkbox"
-  }), /*#__PURE__*/_react.default.createElement("label", null, "Amsterdam")), /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("input", {
-    type: "checkbox"
-  }), /*#__PURE__*/_react.default.createElement("label", null, "Berlin"))));
+  })), /*#__PURE__*/_react.default.createElement(_CheckboxCity.default, null));
 }
-},{"react":"node_modules/react/index.js","../pages/Context":"pages/Context.js"}],"components/JobsList.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../pages/Context":"pages/Context.js","../components/CheckboxCity":"components/CheckboxCity.js"}],"components/JobsList.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -34111,8 +34225,8 @@ function JobsList() {
   const {
     jobs,
     loading
-  } = state;
-  console.log(jobs);
+  } = state; // console.log(jobs);
+
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_SearchJobs.default, null), /*#__PURE__*/_react.default.createElement(_FullTimeJobs.default, null), /*#__PURE__*/_react.default.createElement(_SearchByLocation.default, null), loading && /*#__PURE__*/_react.default.createElement("p", null, "Loading..."), !loading && jobs && /*#__PURE__*/_react.default.createElement("div", null, jobs.map(job => /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: `/job/${job.id}`,
     key: job.id
@@ -34253,7 +34367,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64139" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60767" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
