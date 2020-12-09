@@ -30,7 +30,7 @@ export default function JobsList() {
                                     </div>
                                     <div>
                                         <span>{job.location}</span>
-                                        <span>{job.created_at}</span>
+                                        <span>{new Date(job?.created_at).toLocaleDateString()}</span>
                                     </div>
 
                                 </div>
