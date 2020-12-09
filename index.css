@@ -103,3 +103,96 @@ label {
 .about-job {
     grid-column: 2 / 4;
 }
+
+/* All the Jobs details styles */
+.back-to-search {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    color: #1E86FF;
+}
+li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+p {
+    margin: 0;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+h2 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 21px;
+    text-transform: uppercase;
+    color: #B9BDCF;
+}
+.address {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    color: #334680;
+}
+.title {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    color: #334680;
+    padding-top: 36px;
+    padding-bottom: 4px;
+}
+.type {
+    border: 1px solid #334680;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 8px;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+    color: #334680;
+    margin-bottom: 10px;
+}
+.company {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+.company-name {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21px;
+    color: #334680;
+
+}
+.location {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    color: #B9BDCF;
+}
+.description {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 150%;
+    color: #334680;
+}
+ul {
+    padding: 0;
+}
+
+

@@ -34239,7 +34239,7 @@ function JobsList() {
     alt: job.company
   }), /*#__PURE__*/_react.default.createElement("div", {
     className: "about-job"
-  }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, job.company), /*#__PURE__*/_react.default.createElement("p", null, job.title), /*#__PURE__*/_react.default.createElement("button", null, job.type)), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("span", null, job.location), /*#__PURE__*/_react.default.createElement("span", null, job.created_at))))))));
+  }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, job.company), /*#__PURE__*/_react.default.createElement("p", null, job.title), /*#__PURE__*/_react.default.createElement("button", null, job.type)), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("span", null, job.location), /*#__PURE__*/_react.default.createElement("span", null, new Date(job?.created_at).toLocaleDateString()))))))));
 }
 },{"react":"node_modules/react/index.js","../pages/Context":"pages/Context.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","../components/SearchJobs":"components/SearchJobs.js","../components/FullTimeJobs":"components/FullTimeJobs.js","../components/SearchByLocation":"components/SearchByLocation.js"}],"components/JobDetails.js":[function(require,module,exports) {
 "use strict";
@@ -34272,21 +34272,39 @@ function JobDetails() {
   } = (0, _reactRouterDom.useParams)();
   const job = jobs.find(job => job.id === jobId);
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    className: "back-to-search",
     to: "/"
-  }, "\u2B05Back to search"), /*#__PURE__*/_react.default.createElement("h2", null, "How to apply"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "Please email a copy of your resume and online portfolio to ", /*#__PURE__*/_react.default.createElement("a", {
+  }, "\u2B05Back to search"), /*#__PURE__*/_react.default.createElement("h2", null, "How to apply"), /*#__PURE__*/_react.default.createElement("div", {
+    className: "address"
+  }, /*#__PURE__*/_react.default.createElement("p", null, "Please email a copy of your resume and online portfolio to ", /*#__PURE__*/_react.default.createElement("a", {
     href: "/wes"
   }, "wes@kasisto.com"), " & CC ", /*#__PURE__*/_react.default.createElement("a", {
     href: "/eric"
   }, "eric@kasisto.com"))), /*#__PURE__*/_react.default.createElement("article", {
     key: job?.id,
     className: "jobs-details"
+  }, /*#__PURE__*/_react.default.createElement("p", {
+    className: "title"
+  }, job?.title), /*#__PURE__*/_react.default.createElement("button", {
+    className: "type"
+  }, job?.type), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("span", {
+    className: "date"
+  }, new Date(job?.created_at).toLocaleDateString()), /*#__PURE__*/_react.default.createElement("div", {
+    className: "company"
   }, /*#__PURE__*/_react.default.createElement("img", {
     className: "company-logo",
     src: job?.company_logo,
     alt: job?.company
   }), /*#__PURE__*/_react.default.createElement("div", {
-    className: "about-job"
-  }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, job?.company), /*#__PURE__*/_react.default.createElement("p", null, job?.title), /*#__PURE__*/_react.default.createElement("button", null, job?.type)), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("span", null, job?.location), /*#__PURE__*/_react.default.createElement("span", null, job?.created_at))), /*#__PURE__*/_react.default.createElement("div", {
+    className: "company-info"
+  }, /*#__PURE__*/_react.default.createElement("p", {
+    className: "company-name"
+  }, job?.company), /*#__PURE__*/_react.default.createElement("span", {
+    className: "location"
+  }, /*#__PURE__*/_react.default.createElement("i", {
+    className: "ri-earth-line"
+  }), job?.location))), /*#__PURE__*/_react.default.createElement("div", {
+    className: "description",
     dangerouslySetInnerHTML: {
       __html: job?.description
     }
