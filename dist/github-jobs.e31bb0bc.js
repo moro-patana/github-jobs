@@ -34165,8 +34165,6 @@ var _CheckboxCity = _interopRequireDefault(require("../components/CheckboxCity")
 
 var _FullTimeJobs = _interopRequireDefault(require("../components/FullTimeJobs"));
 
-var _SearchJobs = _interopRequireDefault(require("../components/SearchJobs"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
@@ -34188,7 +34186,7 @@ function SearchByLocation() {
     return mapLocation.indexOf(location) === index;
   });
   console.log(filterLocation);
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_SearchJobs.default, null), /*#__PURE__*/_react.default.createElement(_FullTimeJobs.default, null), /*#__PURE__*/_react.default.createElement("form", {
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_FullTimeJobs.default, null), /*#__PURE__*/_react.default.createElement("form", {
     className: "search-city"
   }, /*#__PURE__*/_react.default.createElement("label", null, "Location"), /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("i", {
     className: "ri-earth-line"
@@ -34199,7 +34197,7 @@ function SearchByLocation() {
     onChange: e => setLocation(e.target.value)
   }))), /*#__PURE__*/_react.default.createElement(_CheckboxCity.default, null));
 }
-},{"react":"node_modules/react/index.js","../pages/Context":"pages/Context.js","../components/CheckboxCity":"components/CheckboxCity.js","../components/FullTimeJobs":"components/FullTimeJobs.js","../components/SearchJobs":"components/SearchJobs.js"}],"components/JobsList.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../pages/Context":"pages/Context.js","../components/CheckboxCity":"components/CheckboxCity.js","../components/FullTimeJobs":"components/FullTimeJobs.js"}],"components/JobsList.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -34233,7 +34231,7 @@ function JobsList() {
     loading
   } = state; // console.log(jobs);
 
-  return /*#__PURE__*/_react.default.createElement("div", {
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_SearchJobs.default, null), /*#__PURE__*/_react.default.createElement("div", {
     className: "jobs"
   }, /*#__PURE__*/_react.default.createElement(_SearchByLocation.default, null), loading && /*#__PURE__*/_react.default.createElement("p", null, "Loading..."), !loading && jobs && /*#__PURE__*/_react.default.createElement("div", null, jobs.map(job => /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: `/job/${job.id}`,
@@ -34261,7 +34259,7 @@ function JobsList() {
     className: "created"
   }, /*#__PURE__*/_react.default.createElement("i", {
     className: "ri-time-line"
-  }), /*#__PURE__*/_react.default.createElement("span", null, new Date(job?.created_at).toLocaleDateString())))))))));
+  }), /*#__PURE__*/_react.default.createElement("span", null, new Date(job?.created_at).toLocaleDateString()))))))))));
 }
 },{"react":"node_modules/react/index.js","../pages/Context":"pages/Context.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","../components/SearchJobs":"components/SearchJobs.js","../components/SearchByLocation":"components/SearchByLocation.js"}],"components/JobDetails.js":[function(require,module,exports) {
 "use strict";

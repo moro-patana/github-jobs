@@ -10,38 +10,41 @@ export default function JobsList() {
     const { jobs, loading } = state
     // console.log(jobs);
     return (
-        <div className="jobs">
-            <SearchByLocation/>
-            {loading && <p>Loading...</p>}
-            {!loading && jobs && (
-                <div>
-                    {jobs.map(job => (
-                        <Link to={`/job/${job.id}`} key={job.id}>
-                            <article key={job.id} className="jobs-list">
-                                <img className="company-logo" src={job.company_logo} alt={job.company} />
-                                <div className="about-job">
-                                    <div>
-                                        <h3>{job.company}</h3>
-                                        <p className="title">{job.title}</p>
-                                        <button className="type">{job.type}</button>
-                                    </div>
-                                    <div className="more">
-                                        <div className="city">
-                                            <i className="ri-earth-line"></i>
-                                            <span>{job.location}</span>
+        <div>
+            <SearchJobs/>
+            <div className="jobs">
+                <SearchByLocation/>
+                {loading && <p>Loading...</p>}
+                {!loading && jobs && (
+                    <div>
+                        {jobs.map(job => (
+                            <Link to={`/job/${job.id}`} key={job.id}>
+                                <article key={job.id} className="jobs-list">
+                                    <img className="company-logo" src={job.company_logo} alt={job.company} />
+                                    <div className="about-job">
+                                        <div>
+                                            <h3>{job.company}</h3>
+                                            <p className="title">{job.title}</p>
+                                            <button className="type">{job.type}</button>
                                         </div>
-                                        <div className="created">
-                                            <i className="ri-time-line"></i>
-                                            <span>{new Date(job?.created_at).toLocaleDateString()}</span>
+                                        <div className="more">
+                                            <div className="city">
+                                                <i className="ri-earth-line"></i>
+                                                <span>{job.location}</span>
+                                            </div>
+                                            <div className="created">
+                                                <i className="ri-time-line"></i>
+                                                <span>{new Date(job?.created_at).toLocaleDateString()}</span>
+                                            </div>
                                         </div>
+    
                                     </div>
-
-                                </div>
-                            </article>
-                        </Link>
-                    ))}
-                </div>
-            )}
+                                </article>
+                            </Link>
+                        ))}
+                    </div>
+                )}
+            </div>
         </div>
     )
 }

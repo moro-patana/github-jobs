@@ -275,6 +275,10 @@ ul, ol {
           max-width: 1150px;
           margin: 0 auto;
       }
+      .search-jobs {
+          padding-left: 200px;
+          padding-right: 200px;
+      }
      .jobs {
          display: grid;
          grid-template-columns: 37% 60%;
