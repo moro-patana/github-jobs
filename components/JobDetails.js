@@ -9,25 +9,27 @@ function JobDetails() {
 
     return (
         <div>
-            <Link to="/">⬅Back to search</Link>
+            <Link className="back-to-search" to="/">⬅Back to search</Link>
             <h2>How to apply</h2>
-            <div>
+            <div className="address">
                 <p>Please email a copy of your resume and online portfolio to <a href="/wes">wes@kasisto.com</a> & CC <a href="/eric">eric@kasisto.com</a></p>
             </div>
             <article key={job?.id} className="jobs-details">
-                <img className="company-logo" src={job?.company_logo} alt={job?.company} />
-                <div className="about-job">
-                    <div>
-                        <h3>{job?.company}</h3>
-                        <p>{job?.title}</p>
-                        <button>{job?.type}</button>
-                    </div>
-                    <div>
-                        <span>{job?.location}</span>
-                        <span>{job?.created_at}</span>
-                    </div>
+                <p className="title">{job?.title}</p>
+                <button className="type">{job?.type}</button>
+                <br></br>
+                <span className="date">{new Date(job?.created_at).toLocaleDateString()}</span>
+                <div className="company">
+                  <img className="company-logo" src={job?.company_logo} alt={job?.company} />
+                  <div className="company-info">
+                      <p className="company-name">{job?.company}</p>
+                      <span className="location">
+                      <i className="ri-earth-line"></i>
+                          {job?.location}
+                      </span>
+                  </div>
                 </div>
-                <div dangerouslySetInnerHTML={{
+                <div className="description" dangerouslySetInnerHTML={{
                     __html: job?.description
                 }}></div>
             </article>
