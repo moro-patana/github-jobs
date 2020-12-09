@@ -21,7 +21,7 @@ export default function SearchByLocation() {
                     <i className="ri-earth-line"></i>
                     <input
                         type="text"
-                        placeholder="City, state, zip code or country"
+                        placeholder="Search by city"
                         value={location}
                         onChange={handleSearchCityName}
                     />

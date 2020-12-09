@@ -34201,7 +34201,7 @@ function SearchByLocation() {
     className: "ri-earth-line"
   }), /*#__PURE__*/_react.default.createElement("input", {
     type: "text",
-    placeholder: "City, state, zip code or country",
+    placeholder: "Search by city",
     value: location,
     onChange: handleSearchCityName
   }))), /*#__PURE__*/_react.default.createElement(_CheckboxCity.default, null));
