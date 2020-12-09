@@ -77,6 +77,11 @@ label {
     border-radius: 4px;
     background: #1E86FF;
     color: white;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
 }
 .form-input input {
     border: none;
@@ -102,6 +107,33 @@ label {
 }
 .about-job {
     grid-column: 2 / 4;
+}
+
+/* Search city form styles */
+.search-city {
+    display: flex;
+    flex-direction: column;
+}
+.search-city > label {
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 21px;
+    text-transform: uppercase;
+    color: #B9BDCF;
+}
+.search-city fieldset {
+    background: #FFFFFF;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 1rem;
+}
+.search-city input {
+    border: none;
+    padding-right: 146px;
 }
 
 /* All the Jobs details styles */
