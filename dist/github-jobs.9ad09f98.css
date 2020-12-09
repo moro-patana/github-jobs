@@ -105,7 +105,11 @@ label {
 }
 
 /* All the Jobs details styles */
+.job-description {
+    font-family: "Roboto";
+}
 .back-to-search {
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
@@ -132,6 +136,7 @@ h2 {
     color: #B9BDCF;
 }
 .address {
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
@@ -139,7 +144,6 @@ h2 {
     color: #334680;
 }
 .title {
-    font-family: "Roboto";
     font-style: normal;
     font-weight: bold;
     font-size: 24px;
@@ -167,7 +171,6 @@ h2 {
     padding-bottom: 1rem;
 }
 .company-name {
-    font-family: "Roboto";
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
@@ -184,7 +187,6 @@ h2 {
     color: #B9BDCF;
 }
 .description {
-    font-family: "Roboto";
     font-style: normal;
     font-weight: normal;
     font-size: 16px;

@@ -34271,7 +34271,9 @@ function JobDetails() {
     jobId
   } = (0, _reactRouterDom.useParams)();
   const job = jobs.find(job => job.id === jobId);
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "job-description"
+  }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     className: "back-to-search",
     to: "/"
   }, "\u2B05Back to search"), /*#__PURE__*/_react.default.createElement("h2", null, "How to apply"), /*#__PURE__*/_react.default.createElement("div", {
