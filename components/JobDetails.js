@@ -8,7 +8,7 @@ function JobDetails() {
     const job = jobs.find(job => job.id === jobId)
 
     return (
-        <div>
+        <div className="job-description">
             <Link className="back-to-search" to="/">⬅Back to search</Link>
             <h2>How to apply</h2>
             <div className="address">
