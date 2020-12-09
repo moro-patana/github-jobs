@@ -5,7 +5,6 @@ export default function FullTimeJobs() {
     const {state, dispatch} = useContext(Context)
     const {jobs} = state
     const [isChecked, setIsChecked] = useState(false)
-    // console.log(jobs);
 
     function handleCheckboxLocation() {
         const fullTimeJobs = jobs.filter(job => job.type === "Contract")

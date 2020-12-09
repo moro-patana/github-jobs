@@ -10,9 +10,9 @@ export default function JobsList() {
     const { jobs, loading } = state
     return (
         <div>
-            <SearchJobs/>
+            <SearchJobs />
             <div className="jobs">
-                <SearchByLocation/>
+                <SearchByLocation />
                 {loading && <p>Loading...</p>}
                 {!loading && (
                     <div>
@@ -36,7 +36,7 @@ export default function JobsList() {
                                                 <span>{new Date(job?.created_at).toLocaleDateString()}</span>
                                             </div>
                                         </div>
-    
+
                                     </div>
                                 </article>
                             </Link>

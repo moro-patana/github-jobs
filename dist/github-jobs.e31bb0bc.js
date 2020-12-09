@@ -33997,18 +33997,15 @@ function SearchJobs() {
   const {
     jobs
   } = state;
-  console.log(jobs);
   const [searchForJob, setSearchForJob] = (0, _react.useState)("");
 
   function searchForJobInput(e) {
     e.preventDefault();
     const filteredJobByName = jobs.filter(job => job.title.toLowerCase().includes(searchForJob));
-    console.log(filteredJobByName);
     dispatch({
       type: "SEARCH_JOB_BY_NAME",
       value: filteredJobByName
-    }); // setJobs(filteredJobByName)
-
+    });
     setSearchForJob("");
   }
 
@@ -34051,7 +34048,8 @@ function CheckboxCity() {
   } = (0, _react.useContext)(_Context.Context);
   const {
     jobs
-  } = state;
+  } = state; // Add states for each checkbox
+
   const [unitedStates, setUnitedStates] = (0, _react.useState)(false);
   const [newYork, setNewYork] = (0, _react.useState)(false);
   const [barcelona, setBarcelona] = (0, _react.useState)(false);
@@ -34139,7 +34137,7 @@ function FullTimeJobs() {
   const {
     jobs
   } = state;
-  const [isChecked, setIsChecked] = (0, _react.useState)(false); // console.log(jobs);
+  const [isChecked, setIsChecked] = (0, _react.useState)(false);
 
   function handleCheckboxLocation() {
     const fullTimeJobs = jobs.filter(job => job.type === "Contract");
@@ -34359,8 +34357,6 @@ var _react = _interopRequireDefault(require("react"));
 
 var _Header = _interopRequireDefault(require("../components/Header"));
 
-var _SearchJobs = _interopRequireDefault(require("../components/SearchJobs"));
-
 var _JobsList = _interopRequireDefault(require("../components/JobsList"));
 
 var _JobDetails = _interopRequireDefault(require("../components/JobDetails"));
@@ -34377,7 +34373,7 @@ function App() {
     path: "/job/:jobId"
   }, /*#__PURE__*/_react.default.createElement(_JobDetails.default, null))));
 }
-},{"react":"node_modules/react/index.js","../components/Header":"components/Header.js","../components/SearchJobs":"components/SearchJobs.js","../components/JobsList":"components/JobsList.js","../components/JobDetails":"components/JobDetails.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../components/Header":"components/Header.js","../components/JobsList":"components/JobsList.js","../components/JobDetails":"components/JobDetails.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));

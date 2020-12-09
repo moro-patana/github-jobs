@@ -24,14 +24,14 @@ function JobDetails() {
                 <br></br>
                 <span className="date">{new Date(job?.created_at).toLocaleDateString()}</span>
                 <div className="company">
-                  <img className="company-logo" src={job?.company_logo} alt={job?.company} />
-                  <div className="company-info">
-                      <p className="company-name">{job?.company}</p>
-                      <span className="location">
-                      <i className="ri-earth-line"></i>
-                          {job?.location}
-                      </span>
-                  </div>
+                    <img className="company-logo" src={job?.company_logo} alt={job?.company} />
+                    <div className="company-info">
+                        <p className="company-name">{job?.company}</p>
+                        <span className="location">
+                            <i className="ri-earth-line"></i>
+                            {job?.location}
+                        </span>
+                    </div>
                 </div>
                 <div className="description" dangerouslySetInnerHTML={{
                     __html: job?.description
