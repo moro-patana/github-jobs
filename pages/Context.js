@@ -24,6 +24,12 @@ function ContextProvider({children}) {
                     jobs: action.value
                 }
             }
+            case "SEARCH_BY_CITYNAME": {
+                return {
+                    ...state,
+                    jobs: action.value
+                }
+            }
             case "SEARCH_JOB_IN_UNITED_STATES": {
                 return {
                     ...state,
