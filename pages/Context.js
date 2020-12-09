@@ -24,6 +24,35 @@ function ContextProvider({children}) {
                     jobs: action.value
                 }
             }
+            case "SEARCH_JOB_IN_UNITED_STATES": {
+                return {
+                    ...state,
+                    loading: false,
+                    jobs: action.value
+                }
+            }
+            case "SEARCH_JOB_IN_NEW_YORK": {
+                return {
+                    ...state,
+                    loading: false,
+                    jobs: action.value
+                }
+            }
+            case "SEARCH_JOB_IN_BARCELONA": {
+                return {
+                    ...state,
+                    loading: false,
+                    jobs: action.value
+                }
+            }
+            case "SEARCH_JOB_IN_BERLIN": {
+                return {
+                    ...state,
+                    loading: false,
+                    jobs: action.value
+                }
+            }
+
 
          }
     },{
