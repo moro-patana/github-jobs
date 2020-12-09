@@ -17,7 +17,7 @@ export default function SearchJobs() {
                 <i className="ri-earth-line"></i>
                 <input
                 type="text"
-                placeholder="Title, companies, expertise or benefits"
+                placeholder="Type the title of the job"
                 value={searchForJob}
                 onChange={(e) => setSearchForJob(e.target.value)}
                 />

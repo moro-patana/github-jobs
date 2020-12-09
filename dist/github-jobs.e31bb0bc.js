@@ -34018,7 +34018,7 @@ function SearchJobs() {
     className: "ri-earth-line"
   }), /*#__PURE__*/_react.default.createElement("input", {
     type: "text",
-    placeholder: "Title, companies, expertise or benefits",
+    placeholder: "Type the title of the job",
     value: searchForJob,
     onChange: e => setSearchForJob(e.target.value)
   }), /*#__PURE__*/_react.default.createElement("button", {
