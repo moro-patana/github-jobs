@@ -17,6 +17,7 @@ This is a githubjob project which is based on search form and checkboxes. The pu
 
 
 <img src="./img/project-screenshot.png" alt="Project's feature "/>
+<img src="./img/job-details.png" alt="Project's feature "/>
 
 [demo](https://github-jobs-manjaka.netlify.app) : https://github-jobs-manjaka.netlify.app
 
