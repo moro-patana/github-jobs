@@ -34184,12 +34184,16 @@ function SearchByLocation() {
     return mapLocation.indexOf(location) === index;
   });
   console.log(filterLocation);
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("form", null, /*#__PURE__*/_react.default.createElement("label", null, "Location"), /*#__PURE__*/_react.default.createElement("input", {
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("form", {
+    className: "search-city"
+  }, /*#__PURE__*/_react.default.createElement("label", null, "Location"), /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("i", {
+    className: "ri-earth-line"
+  }), /*#__PURE__*/_react.default.createElement("input", {
     type: "text",
     placeholder: "City, state, zip code or country",
     value: location,
     onChange: e => setLocation(e.target.value)
-  })), /*#__PURE__*/_react.default.createElement(_CheckboxCity.default, null));
+  }))), /*#__PURE__*/_react.default.createElement(_CheckboxCity.default, null));
 }
 },{"react":"node_modules/react/index.js","../pages/Context":"pages/Context.js","../components/CheckboxCity":"components/CheckboxCity.js"}],"components/JobsList.js":[function(require,module,exports) {
 "use strict";

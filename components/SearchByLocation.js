@@ -14,14 +14,17 @@ export default function SearchByLocation() {
         console.log(filterLocation);
     return (
         <div>
-            <form>
+            <form className="search-city">
                 <label>Location</label>
-                <input 
-                type="text" 
-                placeholder="City, state, zip code or country"
-                value={location}
-                onChange={(e) => setLocation(e.target.value)}
-                />
+                <fieldset>
+                <i className="ri-earth-line"></i>
+                    <input 
+                    type="text" 
+                    placeholder="City, state, zip code or country"
+                    value={location}
+                    onChange={(e) => setLocation(e.target.value)}
+                    />
+                </fieldset>
             </form>
             <CheckboxeCity/>
         </div>
