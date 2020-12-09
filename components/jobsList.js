@@ -2,7 +2,6 @@ import React, { useContext } from 'react'
 import { Context } from "../pages/Context"
 import { Link } from "react-router-dom"
 import SearchJobs from "../components/SearchJobs"
-import FullTimeJobs from "../components/FullTimeJobs"
 import SearchByLocation from "../components/SearchByLocation"
 
 
@@ -11,9 +10,7 @@ export default function JobsList() {
     const { jobs, loading } = state
     // console.log(jobs);
     return (
-        <div>
-            <SearchJobs/>
-            <FullTimeJobs/>
+        <div className="jobs">
             <SearchByLocation/>
             {loading && <p>Loading...</p>}
             {!loading && jobs && (
@@ -29,9 +26,14 @@ export default function JobsList() {
                                         <button className="type">{job.type}</button>
                                     </div>
                                     <div className="more">
-                                        <i className="ri-earth-line"></i>
-                                        <span>{job.location}</span>
-                                        <span>{new Date(job?.created_at).toLocaleDateString()}</span>
+                                        <div className="city">
+                                            <i className="ri-earth-line"></i>
+                                            <span>{job.location}</span>
+                                        </div>
+                                        <div className="created">
+                                            <i className="ri-time-line"></i>
+                                            <span>{new Date(job?.created_at).toLocaleDateString()}</span>
+                                        </div>
                                     </div>
 
                                 </div>

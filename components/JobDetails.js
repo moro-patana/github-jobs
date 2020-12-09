@@ -9,14 +9,18 @@ function JobDetails() {
 
     return (
         <div className="job-description">
-            <Link className="back-to-search" to="/">⬅Back to search</Link>
-            <h2>How to apply</h2>
-            <div className="address">
-                <p>Please email a copy of your resume and online portfolio to <a href="/wes">wes@kasisto.com</a> & CC <a href="/eric">eric@kasisto.com</a></p>
+            <div>
+                <Link className="back-to-search" to="/">⬅Back to search</Link>
+                <h2>How to apply</h2>
+                <div className="address">
+                    <p>Please email a copy of your resume and online portfolio to <a href="/wes">wes@kasisto.com</a> & CC <a href="/eric">eric@kasisto.com</a></p>
+                </div>
             </div>
             <article key={job?.id} className="jobs-details">
-                <p className="title">{job?.title}</p>
-                <button className="type">{job?.type}</button>
+                <div className="details-heading">
+                    <p className="title">{job?.title}</p>
+                    <button className="type">{job?.type}</button>
+                </div>
                 <br></br>
                 <span className="date">{new Date(job?.created_at).toLocaleDateString()}</span>
                 <div className="company">

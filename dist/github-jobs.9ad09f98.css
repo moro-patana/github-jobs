@@ -58,6 +58,10 @@ label {
     padding-left: 10px;
 
 }
+.jobs {
+    display: flex;
+    flex-direction: column;
+}
 .search-jobs {
     background-image: url("/backgroundImg.9f5bd77c.png");
     background-repeat: no-repeat;
@@ -135,8 +139,14 @@ label {
 .more {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: baseline;
+}
+.more span {
+    padding-left: 10px;
+}
+.city,
+.created {
+    padding: 10px;
 }
 
 /* Search city form styles */
@@ -150,6 +160,7 @@ label {
     line-height: 21px;
     text-transform: uppercase;
     color: #B9BDCF;
+    padding-bottom: 14px;
 }
 .search-city fieldset {
     background: #FFFFFF;
@@ -257,6 +268,48 @@ h2 {
 }
 ul, ol {
     padding: 0;
+}
+
+@media (min-width: 1150px) {
+      body {
+          max-width: 1150px;
+          margin: 0 auto;
+      }
+     .jobs {
+         display: grid;
+         grid-template-columns: 37% 60%;
+         column-gap: 32px;
+         padding-top: 42px;
+     }
+     .company-logo {
+         width: 100px;
+         height: 100px;
+     }
+     .about-job {
+         display: flex;
+         flex-direction: row;
+         justify-content: space-between;
+     }
+     .more {
+         padding-top: 77px;
+     }
+     .job-description {
+         display: grid;
+         grid-template-columns: 200px 800px;
+         column-gap: 77px;
+     }
+     .details-heading {
+         display: flex;
+         flex-direction: row;
+     }
+     .title {
+         padding-right: 20px;
+     }
+     .type {
+         width: 100px;
+         height: 40px;
+         margin-top: 25px;
+     }
 }
 
 

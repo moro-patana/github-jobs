@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Context } from "../pages/Context"
 import CheckboxeCity from "../components/CheckboxCity"
+import FullTimeJobs from "../components/FullTimeJobs"
+import SearchJobs from "../components/SearchJobs"
 
 export default function SearchByLocation() {
     const {state, dispatch} = useContext(Context)
@@ -14,6 +16,8 @@ export default function SearchByLocation() {
         console.log(filterLocation);
     return (
         <div>
+            <SearchJobs/>
+            <FullTimeJobs/>
             <form className="search-city">
                 <label>Location</label>
                 <fieldset>
